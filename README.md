@@ -10,9 +10,14 @@ Team name: Salary Seekers
 
 Team Members: 
 
-Amanda Herrera
+Amanda Herrera-@amandaherr123
 
 Luke Paustian
 
 Neha Jupalli
+
+
+---
+
+## Video Link?
 
