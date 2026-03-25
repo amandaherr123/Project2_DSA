@@ -3,6 +3,9 @@ This project uses C++ to provide a reasonable salary expectation
 based off academic, technical, and professional attributes.
 
 ---
+## HOW TO USE:
+
+---
 
 **Team Information**
 
@@ -18,6 +21,8 @@ Neha Jupalli
 
 
 ---
+
+
 
 ## Video Link?
 
