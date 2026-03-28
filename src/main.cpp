@@ -61,6 +61,7 @@ vector<Student> loadCSV(const string& filename) {
     return students;
 }
 
+
 // SIMILARITY FUNCTION
 float calculateDistance(const Student& a, const Student& b) {
     float dist = 0;
@@ -78,8 +79,9 @@ float calculateDistance(const Student& a, const Student& b) {
     return sqrt(dist);
 }
 
+
 // SALARY ESTIMATION
-float estimateSalary(vector<Student>& students, Student& input, int k = 5) {
+float estimateSalaryMerge(vector<Student>& students, Student& input, int k = 5) {
 
     vector<pair<float, float>> distances; // (distance, salary)
 
@@ -100,7 +102,31 @@ float estimateSalary(vector<Student>& students, Student& input, int k = 5) {
     return sum / k;
 }
 
+//Same function, but sorts similarity scores using heap
+float estimateSalaryHeap(vector<Student>& students, Student& input, int k = 5) {
+
+    vector<pair<float, float>> distances; // (distance, salary)
+
+    for (auto& s : students) {
+        float dist = calculateDistance(s, input);
+        distances.push_back({dist, s.salary});
+    }
+
+    // Sort by distance (closest first)
+    heapSort(distances);
+
+    // Take average of top K
+    float sum = 0;
+    for (int i = 0; i < k; i++) {
+        sum += distances[i].second;
+    }
+
+    return sum / k;
+}
+
+
 // Replace these with teammates implementations
+/* saving just in case, but both implementations are complete - Luke
 void mergeSortWrapper(vector<Student>& students) {
     sort(students.begin(), students.end(), [](Student a, Student b) {
         return a.salary < b.salary;
@@ -112,6 +138,8 @@ void heapSortWrapper(vector<Student>& students) {
         return a.salary < b.salary;
     });
 }
+*/
+
 
 // MAIN
 int main() {
@@ -128,7 +156,7 @@ int main() {
 
     //USER INPUT
     Student input;
-    cout << "\nEnter your GPA: ";
+    cout << "\nEnter your GPA (Out of 10): ";
     cin >> input.gpa;
 
     cout << "Enter your Age: ";
@@ -137,18 +165,18 @@ int main() {
     cout << "Enter your internship count: ";
     cin >> input.internships;
 
-    cout << "Enter your Major: ";
+    cout << "Enter your Major (CSE, IT, CE, etc.): ";
     cin.ignore();
     getline(cin, input.major);
 
-    cout << "Enter University Type: ";
+    cout << "Enter University Tier (T1-T3): ";
     getline(cin, input.universityType);
 
     // ESTIMATION
-    float estimatedSalary = estimateSalary(students, input);
-
-    cout << "\nEstimated Salary: $" << estimatedSalary << endl;
-
+    float estimatedSalaryMerged = estimateSalaryMerge(students, input);
+    float estimatedSalaryHeap = estimateSalaryHeap(students, input);
+    cout << "\nEstimated Salary with Merge Sort: $" << estimatedSalaryMerged << endl;
+    cout << "Estimated Salary with Heap Sort: $" << estimatedSalaryHeap << endl;
 
     return 0;
 }
