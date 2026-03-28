@@ -5,9 +5,9 @@
 using namespace std;
 
 void heapify(vector<pair<float, float>>& arr, int n, int i){
-    int largest = 1;
-    int left = 2*1 +1;
-    int right = 2* 1 + 2;
+    int largest = i;
+    int left = 2*i +1;
+    int right = 2*i + 2;
 
     if(left < n && arr[left].first > arr[largest].first)
     largest = left;
@@ -31,10 +31,10 @@ void heapSort(vector<pair<float, float>>& arr){
     for(int i = n-1; i > 0; i--){
 
         //move curr to end
-        swap(arr[0], arr[1]);
+        swap(arr[0], arr[i]);
 
         //heapify 
-        heapify(arr,n,i);
+        heapify(arr,i,0);
 
     }
 
