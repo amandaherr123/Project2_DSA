@@ -5,6 +5,7 @@ based off academic, technical, and professional attributes.
 ---
 ## HOW TO USE:
 
+
 ---
 
 **Team Information**
@@ -13,7 +14,7 @@ Team name: Salary Seekers
 
 Team Members: 
 
-Amanda Herrera-@amandaherr123
+Amanda Herrera
 
 Luke Paustian
 
