@@ -30,11 +30,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15b719c3-14ee-4317-9dfb-fc96e04394ec" name="Changes" comment="temp time taking, need to fix CSV parsing... maybe delete all columns in csv besides what we're using then reupload?">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+    <list default="true" id="15b719c3-14ee-4317-9dfb-fc96e04394ec" name="Changes" comment="switched a few student variables, trimmed CSV, working on parcing and distances now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/student_placement_prediction_dataset_2026.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/student_placement_prediction_dataset_2026.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1774686988060</updated>
       <workItem from="1774686989729" duration="3561000" />
-      <workItem from="1774710795713" duration="335000" />
+      <workItem from="1774710795713" duration="890000" />
+      <workItem from="1774711700839" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="Added merge_sort files and coded merge sort. Changed default sort() in main file to only merge so far.">
       <option name="closed" value="true" />
@@ -154,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774690176380</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="switched a few student variables, trimmed CSV, working on parcing and distances now">
+      <option name="closed" value="true" />
+      <created>1774711208432</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774711208432</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +177,7 @@
     <MESSAGE value="Adjusted heap sort, a few things had the wrong value, just swapped a few values" />
     <MESSAGE value="Added another estimate salary function to use heap, will be adding clocking to compare the speeds and see if the output is any different" />
     <MESSAGE value="temp time taking, need to fix CSV parsing... maybe delete all columns in csv besides what we're using then reupload?" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp time taking, need to fix CSV parsing... maybe delete all columns in csv besides what we're using then reupload?" />
+    <MESSAGE value="switched a few student variables, trimmed CSV, working on parcing and distances now" />
+    <option name="LAST_COMMIT_MESSAGE" value="switched a few student variables, trimmed CSV, working on parcing and distances now" />
   </component>
 </project>
