@@ -173,10 +173,19 @@ int main() {
     getline(cin, input.universityType);
 
     // ESTIMATION
+    auto start_time_Merge=chrono::high_resolution_clock::now();
     float estimatedSalaryMerged = estimateSalaryMerge(students, input);
+    auto end_time_Merge=chrono::high_resolution_clock::now();
+    auto time_merge=end_time_Merge - start_time_Merge;
+    auto start_time_Heap=chrono::high_resolution_clock::now();
     float estimatedSalaryHeap = estimateSalaryHeap(students, input);
-    cout << "\nEstimated Salary with Merge Sort: $" << estimatedSalaryMerged << endl;
-    cout << "Estimated Salary with Heap Sort: $" << estimatedSalaryHeap << endl;
+    auto end_time_Heap=chrono::high_resolution_clock::now();
+    auto time_heap=end_time_Heap - start_time_Heap;
+
+    cout << "\nEstimated Salary with Merge Sort: $" << estimatedSalaryMerged << endl
+    <<"Time Taken: "<<time_merge.count()<<endl;
+    cout << "Estimated Salary with Heap Sort: $" << estimatedSalaryHeap << endl<<
+     "Time Taken: "<<time_heap.count()<<endl;
 
     return 0;
 }
