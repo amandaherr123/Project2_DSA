@@ -27,7 +27,7 @@ struct Student {
     bool hasSalary=false;
 };
 
-// CSV LOADER
+// CSV LOADER AND PARSER
 vector<Student> loadCSV(const string& filename) {
     vector<Student> students;
     ifstream file(filename);
@@ -37,18 +37,14 @@ vector<Student> loadCSV(const string& filename) {
         return students;
     }
 
-    
-
     string line;
     getline(file, line);
-
-    getline(file,line);
-    cout<< "first data line: " << line << endl; //<-- DELETE
 
     while (getline(file, line)) {
         stringstream ss(line);
         string temp;
         Student s;
+        getline(ss,temp,','); //ignore student ID
 
         getline(ss, temp, ','); s.gpa = stof(temp);
         getline(ss, temp, ','); s.age = stoi(temp);
@@ -77,7 +73,6 @@ vector<Student> loadCSV(const string& filename) {
     return students;
 }
 
-
 // SIMILARITY FUNCTION
 float calculateDistance(const Student& a, const Student& b) {
     float dist = 0;
@@ -94,67 +89,67 @@ float calculateDistance(const Student& a, const Student& b) {
     return sqrt(dist);
 }
 
-
 // SALARY ESTIMATION
-float estimateSalaryMerge(vector<Student>& students, Student& input, int k = 5) {
+float estimateSalaryMerge(vector<Student>& students, Student& input, int k = 10) {
 
     vector<pair<float, float>> distances; // (distance, salary)
 
-    for (auto& s : students) {
-        float dist = calculateDistance(s, input);
-        distances.push_back({dist, s.salary});
+    for (int i=0; i<students.size(); i++) {
+        float dist = calculateDistance(students[i], input);
+        distances.push_back({dist,(float)i});
     }
-
     // Sort by distance (closest first)
     merge_sort(distances,0,distances.size()-1);
 
-    // Take average of top K
+    // Take average of top K THAT HAVE A SALARY
     float sum = 0;
-    for (int i = 0; i < k; i++) {
-        sum += distances[i].second;
-    }
+    int students_used=0;
 
-    return sum / k;
+    for (int i=0; i<distances.size() && students_used<k; i++) {
+        int index=(int)distances[i].second;
+        if (students[index].hasSalary) {
+            sum+=students[index].salary;
+            students_used++;
+        }
+    }
+    if (students_used==0) {
+        return 0;
+    }
+    return sum / students_used;
 }
 
 //Same function, but sorts similarity scores using heap
-float estimateSalaryHeap(vector<Student>& students, Student& input, int k = 5) {
+float estimateSalaryHeap(vector<Student>& students, Student& input, int k = 10) {
 
     vector<pair<float, float>> distances; // (distance, salary)
 
-    for (auto& s : students) {
-        float dist = calculateDistance(s, input);
-        distances.push_back({dist, s.salary});
+    for (int i=0; i<students.size(); i++) {
+        float dist = calculateDistance(students[i], input);
+        distances.push_back({dist,(float)i});
     }
-
     // Sort by distance (closest first)
     heapSort(distances);
 
-    // Take average of top K
+    // Take average of top K THAT HAVE A SALARY
     float sum = 0;
-    for (int i = 0; i < k; i++) {
-        sum += distances[i].second;
+    int students_used=0;
+
+    for (int i=0; i<distances.size() && students_used<k; i++) {
+        int index=(int)distances[i].second;
+        if (students[index].hasSalary) {
+            sum+=students[index].salary;
+            students_used++;
+        }
     }
-
-    return sum / k;
+    if (students_used==0) {
+        return 0;
+    }
+    return sum / students_used;
 }
 
-
-// Replace these with teammates implementations
-/* saving just in case, but both implementations are complete - Luke
-void mergeSortWrapper(vector<Student>& students) {
-    sort(students.begin(), students.end(), [](Student a, Student b) {
-        return a.salary < b.salary;
-    });
+float lakhsToUSD(float lakhs) {
+    return lakhs*1054.14; //curent lakh to usd ratio (lakh is 100,000 rupees)
 }
-
-void heapSortWrapper(vector<Student>& students) {
-    sort(students.begin(), students.end(), [](Student a, Student b) {
-        return a.salary < b.salary;
-    });
-}
-*/
-
 
 // MAIN
 int main() {
@@ -171,6 +166,8 @@ int main() {
 
     //USER INPUT
     Student input;
+    string volunteerInput;
+
     cout << "\nEnter your GPA (Out of 10): ";
     cin >> input.gpa;
 
@@ -184,23 +181,36 @@ int main() {
     cin.ignore();
     getline(cin, input.major);
 
-    cout << "Enter University Tier (T1-T3): ";
-    getline(cin, input.universityType);
+    cout << "Enter number of LinkedIn connections: ";
+    cin >> input.linkedin_connections;
 
-    // ESTIMATION
+    cout << "Enter estimated leadeship score (0-100)";
+    cin >> input.leadership_score;
+
+    cout << "Volunteer experience? (Yes or No): ";
+    cin >> volunteerInput;
+    if (volunteerInput=="Yes") {
+        input.volunteer = true;
+    }
+    else {
+        input.volunteer = false;
+    }
+
+    // SALARY ESTIMATION AND TIMING
     auto start_time_Merge=chrono::high_resolution_clock::now();
     float estimatedSalaryMerged = estimateSalaryMerge(students, input);
     auto end_time_Merge=chrono::high_resolution_clock::now();
-    auto time_merge=end_time_Merge - start_time_Merge;
+    auto time_merge=chrono::duration_cast<chrono::microseconds>(end_time_Merge - start_time_Merge);
+
     auto start_time_Heap=chrono::high_resolution_clock::now();
     float estimatedSalaryHeap = estimateSalaryHeap(students, input);
     auto end_time_Heap=chrono::high_resolution_clock::now();
-    auto time_heap=end_time_Heap - start_time_Heap;
+    auto time_heap=chrono::duration_cast<chrono::microseconds>(end_time_Heap - start_time_Heap);
 
-    cout << "\nEstimated Salary with Merge Sort: $" << estimatedSalaryMerged << endl
-    <<"Time Taken: "<<time_merge.count()<<endl;
-    cout << "Estimated Salary with Heap Sort: $" << estimatedSalaryHeap << endl<<
-     "Time Taken: "<<time_heap.count()<<endl;
+    cout << "\nEstimated salary with merge sort: "<< lakhsToUSD(estimatedSalaryMerged) << endl;
+    cout << "Time Taken: " << time_merge.count() << " microseconds" << endl;
 
+    cout << "\nEstimated salary with heap sort: "<< lakhsToUSD(estimatedSalaryHeap) << endl;
+    cout << "Time Taken: " << time_heap.count() << " microseconds" << endl;
     return 0;
 }
