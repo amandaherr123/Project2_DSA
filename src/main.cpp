@@ -20,7 +20,9 @@ struct Student {
     int age;
     int internships;
     string major;
-    string universityType;
+    int linkedin_connections;
+    float leadership_score;
+    bool volunteer=false;
     float salary;
 };
 
