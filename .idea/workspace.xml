@@ -30,9 +30,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15b719c3-14ee-4317-9dfb-fc96e04394ec" name="Changes" comment="switched a few student variables, trimmed CSV, working on parcing and distances now">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/student_placement_prediction_dataset_2026.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/student_placement_prediction_dataset_2026.csv" afterDir="false" />
+    <list default="true" id="15b719c3-14ee-4317-9dfb-fc96e04394ec" name="Changes" comment="re-adding the salary column i deleted :P">
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,7 @@
       <updated>1774686988060</updated>
       <workItem from="1774686989729" duration="3561000" />
       <workItem from="1774710795713" duration="890000" />
-      <workItem from="1774711700839" duration="3000" />
+      <workItem from="1774711700839" duration="621000" />
     </task>
     <task id="LOCAL-00001" summary="Added merge_sort files and coded merge sort. Changed default sort() in main file to only merge so far.">
       <option name="closed" value="true" />
@@ -161,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774711208432</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="re-adding the salary column i deleted :P">
+      <option name="closed" value="true" />
+      <created>1774711959119</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1774711959119</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +185,7 @@
     <MESSAGE value="Added another estimate salary function to use heap, will be adding clocking to compare the speeds and see if the output is any different" />
     <MESSAGE value="temp time taking, need to fix CSV parsing... maybe delete all columns in csv besides what we're using then reupload?" />
     <MESSAGE value="switched a few student variables, trimmed CSV, working on parcing and distances now" />
-    <option name="LAST_COMMIT_MESSAGE" value="switched a few student variables, trimmed CSV, working on parcing and distances now" />
+    <MESSAGE value="re-adding the salary column i deleted :P" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-adding the salary column i deleted :P" />
   </component>
 </project>

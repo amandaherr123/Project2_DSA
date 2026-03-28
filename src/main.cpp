@@ -24,6 +24,7 @@ struct Student {
     float leadership_score;
     bool volunteer=false;
     float salary;
+    bool hasSalary=false;
 };
 
 // CSV LOADER
@@ -53,12 +54,25 @@ vector<Student> loadCSV(const string& filename) {
         getline(ss, temp, ','); s.age = stoi(temp);
         getline(ss, temp, ','); s.internships = stoi(temp);
         getline(ss, s.major, ',');
-        getline(ss, s.universityType, ',');
-        getline(ss, temp, ','); s.salary = stof(temp);
-
+        getline(ss,temp,','); s.linkedin_connections = stoi(temp);
+        getline(ss,temp,','); s.leadership_score = stof(temp);
+        getline(ss, temp,',');
+        if (temp=="Yes") {
+            s.volunteer = true;
+        }
+        else {
+            s.volunteer = false;
+        }
+        getline(ss, temp, ',');
+        if (temp=="") {
+            s.hasSalary = false;
+        }
+        else {
+            s.hasSalary = true;
+            s.salary = stof(temp);
+        }
         students.push_back(s);
     }
-
     file.close();
     return students;
 }
@@ -71,13 +85,12 @@ float calculateDistance(const Student& a, const Student& b) {
     dist += pow(a.gpa - b.gpa, 2);
     dist += pow(a.age - b.age, 2);
     dist += pow(a.internships - b.internships, 2);
-
+    dist += pow((a.linkedin_connections - b.linkedin_connections)/50.0, 2);
+    dist += pow((a.leadership_score - b.leadership_score)/10.0, 2);
 
     //match bonus/penalty
     if (a.major != b.major) dist += 5;
-    if (a.universityType != b.universityType) dist += 3;
-    if (a.internships != b.internships) dist += 4; 
-
+    if (a.volunteer!=b.volunteer) dist += 3;
     return sqrt(dist);
 }
 
