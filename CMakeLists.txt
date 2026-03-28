@@ -8,4 +8,6 @@ include_directories(src)
 add_executable(Project2_DSA
         src/heap_sort.cpp
         src/heap_sort.h
-        src/main.cpp)
+        src/main.cpp
+        src/merge_sort.h
+        src/merge_sort.cpp)

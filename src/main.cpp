@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <chrono>
 #include "heap_sort.h"
+#include "merge_sort.h"
 
 using namespace std;
 
@@ -88,7 +89,7 @@ float estimateSalary(vector<Student>& students, Student& input, int k = 5) {
     }
 
     // Sort by distance (closest first)
-    sort(distances.begin(), distances.end());
+    merge_sort(distances,0,distances.size()-1);
 
     // Take average of top K
     float sum = 0;
