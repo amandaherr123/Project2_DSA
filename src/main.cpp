@@ -95,7 +95,7 @@ void mergeSortWrapper(vector<Student>& students) {
     });
 }
 
-void quickSortWrapper(vector<Student>& students) {
+void heapSortWrapper(vector<Student>& students) {
     sort(students.begin(), students.end(), [](Student a, Student b) {
         return a.salary < b.salary;
     });
