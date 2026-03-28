@@ -9,6 +9,7 @@
 #include <cmath>
 #include <algorithm>
 #include <chrono>
+#include "heap_sort.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ using namespace std;
 struct Student {
     float gpa;
     int age;
+    int internships;
     string major;
     string universityType;
     float salary;
@@ -31,8 +33,13 @@ vector<Student> loadCSV(const string& filename) {
         return students;
     }
 
+    
+
     string line;
     getline(file, line);
+
+    getline(file,line);
+    cout<< "first data line: " << line << endl; //<-- DELETE
 
     while (getline(file, line)) {
         stringstream ss(line);
@@ -41,6 +48,7 @@ vector<Student> loadCSV(const string& filename) {
 
         getline(ss, temp, ','); s.gpa = stof(temp);
         getline(ss, temp, ','); s.age = stoi(temp);
+        getline(ss, temp, ','); s.internships = stoi(temp);
         getline(ss, s.major, ',');
         getline(ss, s.universityType, ',');
         getline(ss, temp, ','); s.salary = stof(temp);
@@ -58,10 +66,13 @@ float calculateDistance(const Student& a, const Student& b) {
 
     dist += pow(a.gpa - b.gpa, 2);
     dist += pow(a.age - b.age, 2);
+    dist += pow(a.internships - b.internships, 2);
+
 
     //match bonus/penalty
     if (a.major != b.major) dist += 5;
     if (a.universityType != b.universityType) dist += 3;
+    if (a.internships != b.internships) dist += 4; 
 
     return sqrt(dist);
 }
@@ -103,8 +114,8 @@ void heapSortWrapper(vector<Student>& students) {
 
 // MAIN
 int main() {
-
-    string filename = "students.csv"; // <-- change to file name
+     //DELETE COLUMNS IN DATASET
+    string filename = "../data/student_placement_prediction_dataset_2026.csv"; // <-- change to file name
     vector<Student> students = loadCSV(filename);
 
     if (students.empty()) {
@@ -121,6 +132,9 @@ int main() {
 
     cout << "Enter your Age: ";
     cin >> input.age;
+
+    cout << "Enter your internship count: ";
+    cin >> input.internships;
 
     cout << "Enter your Major: ";
     cin.ignore();

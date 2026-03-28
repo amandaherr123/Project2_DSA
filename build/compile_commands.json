@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/workspaces/Project2_DSA/build",
+  "command": "/usr/bin/g++  -I/workspaces/Project2_DSA/src -g -std=gnu++14 -o CMakeFiles/Project2_DSA.dir/src/heap_sort.cpp.o -c /workspaces/Project2_DSA/src/heap_sort.cpp",
+  "file": "/workspaces/Project2_DSA/src/heap_sort.cpp",
+  "output": "CMakeFiles/Project2_DSA.dir/src/heap_sort.cpp.o"
+},
+{
+  "directory": "/workspaces/Project2_DSA/build",
+  "command": "/usr/bin/g++  -I/workspaces/Project2_DSA/src -g -std=gnu++14 -o CMakeFiles/Project2_DSA.dir/src/main.cpp.o -c /workspaces/Project2_DSA/src/main.cpp",
+  "file": "/workspaces/Project2_DSA/src/main.cpp",
+  "output": "CMakeFiles/Project2_DSA.dir/src/main.cpp.o"
+}
+]
