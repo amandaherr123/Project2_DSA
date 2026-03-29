@@ -6,7 +6,7 @@ based off academic, technical, and professional attributes.
 ## HOW TO USE:
 git clone <https://github.com/amandaherr123/Project2_DSA.git>
 
-cd Project2_DSA
+cd Project2_DSA, run in local IDE (we used used CLion), and input the values it asks for.
 
 ---
 
