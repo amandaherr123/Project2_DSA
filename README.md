@@ -4,7 +4,8 @@ based off academic, technical, and professional attributes.
 
 ---
 ## HOW TO USE:
-
+git clone <repo-link>
+cd Project2_DSA
 
 ---
 
@@ -25,5 +26,7 @@ Neha Jupalli
 
 
 
-## Video Link?
+## Video Link
+ https://youtu.be/HjTv59DcTp0
+ 
 
