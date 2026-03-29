@@ -107,6 +107,7 @@ float estimateSalaryMerge(vector<Student>& students, Student& input, int k = 10)
 
     for (int i=0; i<distances.size() && students_used<k; i++) {
         int index=(int)distances[i].second;
+
         if (students[index].hasSalary) {
             sum+=students[index].salary;
             students_used++;
@@ -136,6 +137,7 @@ float estimateSalaryHeap(vector<Student>& students, Student& input, int k = 10) 
 
     for (int i=0; i<distances.size() && students_used<k; i++) {
         int index=(int)distances[i].second;
+
         if (students[index].hasSalary) {
             sum+=students[index].salary;
             students_used++;
@@ -168,24 +170,89 @@ int main() {
     Student input;
     string volunteerInput;
 
+    cout <<"------------------" << endl;
+    cout << "Salary Estimator" << endl;
+    cout <<"------------------" << endl;
+
     cout << "\nEnter your GPA (Out of 10): ";
-    cin >> input.gpa;
+    while(true){
+        if(!(cin >> input.gpa)){
+        cout << "Invalid Input. Try again: ";
+        cin.clear();
+        cin.ignore(10000, '\n');
+        continue;
+    }
+    if (input.gpa < 0 || input.gpa > 10){
+        cout << "Enter a valid GPA (Out of 10): ";
+        continue;
+    }
+    break;
+}
 
     cout << "Enter your Age: ";
-    cin >> input.age;
+    while(true){
+        if(!(cin >> input.age)){
+        cout << "Invalid Input. Try again: ";
+        cin.clear();
+        cin.ignore(10000, '\n');
+        continue;
+    }
+    if(input.age < 0 || input.age >30){
+        cout << "Enter a valid age range: ";
+        continue;
+    }
+    break;
+}
 
     cout << "Enter your internship count: ";
-    cin >> input.internships;
+    while(true){
+        if(!(cin >> input.internships)){
+        cout << "Invalid Input. Try again: ";
+        cin.clear();
+        cin.ignore(10000, '\n');
+        continue;
+    }
+    if (input.internships < 0 || input.internships >20){
+        cout << "Enter a valid internship count: ";
+        continue;
+    }
+    break;
+}
 
-    cout << "Enter your Major (CSE, IT, CE, etc.): ";
-    cin.ignore();
+    cin.ignore(100000, '\n');
+    vector<string> validMajors = {"CSE", "IT", "CE", "EEE", "ECE", "Civil", "Mechanical"};
+    while(true){
+    cout << "Enter your Major (CSE, IT, CE, EEE, ECE, Civil, Mechanical): ";
     getline(cin, input.major);
+
+    bool valid = false;
+    for (string x : validMajors){
+        if (input.major == x){
+            valid = true;
+            break;
+        }
+    }
+    if(valid) break;
+    cout << "Invalid major input. Try again: ";
+    }
 
     cout << "Enter number of LinkedIn connections: ";
     cin >> input.linkedin_connections;
-
-    cout << "Enter estimated leadeship score (0-100)";
-    cin >> input.leadership_score;
+   
+    cout << "Enter estimated leadership score (0-100): ";
+    while(true){
+        if(!(cin >> input.leadership_score)){
+        cin.clear();
+        cin.ignore(10000, '\n');
+        cout << "Invalid Input. Try again: ";
+        continue;
+    }
+    if (input.leadership_score < 0 || input.leadership_score > 100){
+        cout << "Enter a valid leadership score: ";
+        continue;
+    }
+    break;
+}
 
     cout << "Volunteer experience? (Yes or No): ";
     cin >> volunteerInput;
@@ -214,3 +281,5 @@ int main() {
     cout << "Time Taken: " << time_heap.count() << " microseconds" << endl;
     return 0;
 }
+
+

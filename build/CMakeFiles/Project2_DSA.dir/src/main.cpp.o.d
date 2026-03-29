@@ -174,4 +174,5 @@ CMakeFiles/Project2_DSA.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/c++/13/limits /usr/include/c++/13/ctime \
  /usr/include/c++/13/bits/parse_numbers.h \
- /workspaces/Project2_DSA/src/heap_sort.h
+ /workspaces/Project2_DSA/src/heap_sort.h \
+ /workspaces/Project2_DSA/src/merge_sort.h

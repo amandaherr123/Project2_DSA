@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Project2_DSA.dir/src/heap_sort.cpp.o.d"
   "CMakeFiles/Project2_DSA.dir/src/main.cpp.o"
   "CMakeFiles/Project2_DSA.dir/src/main.cpp.o.d"
+  "CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.o"
+  "CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.o.d"
   "Project2_DSA"
   "Project2_DSA.pdb"
 )

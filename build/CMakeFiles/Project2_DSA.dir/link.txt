@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/Project2_DSA.dir/src/heap_sort.cpp.o CMakeFiles/Project2_DSA.dir/src/main.cpp.o -o Project2_DSA 
+/usr/bin/g++ -g CMakeFiles/Project2_DSA.dir/src/heap_sort.cpp.o CMakeFiles/Project2_DSA.dir/src/main.cpp.o CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.o -o Project2_DSA 

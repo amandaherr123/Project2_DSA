@@ -177,6 +177,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project2_DSA.dir/build.make CMakeFiles/Project2_DSA.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/merge_sort.o: src/merge_sort.cpp.o
+.PHONY : src/merge_sort.o
+
+# target to build an object file
+src/merge_sort.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project2_DSA.dir/build.make CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.o
+.PHONY : src/merge_sort.cpp.o
+
+src/merge_sort.i: src/merge_sort.cpp.i
+.PHONY : src/merge_sort.i
+
+# target to preprocess a source file
+src/merge_sort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project2_DSA.dir/build.make CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.i
+.PHONY : src/merge_sort.cpp.i
+
+src/merge_sort.s: src/merge_sort.cpp.s
+.PHONY : src/merge_sort.s
+
+# target to generate assembly for a file
+src/merge_sort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project2_DSA.dir/build.make CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.s
+.PHONY : src/merge_sort.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/merge_sort.o"
+	@echo "... src/merge_sort.i"
+	@echo "... src/merge_sort.s"
 .PHONY : help
 
 

@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/Project2_DSA/src/heap_sort.cpp" "CMakeFiles/Project2_DSA.dir/src/heap_sort.cpp.o" "gcc" "CMakeFiles/Project2_DSA.dir/src/heap_sort.cpp.o.d"
   "/workspaces/Project2_DSA/src/main.cpp" "CMakeFiles/Project2_DSA.dir/src/main.cpp.o" "gcc" "CMakeFiles/Project2_DSA.dir/src/main.cpp.o.d"
+  "/workspaces/Project2_DSA/src/merge_sort.cpp" "CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.o" "gcc" "CMakeFiles/Project2_DSA.dir/src/merge_sort.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

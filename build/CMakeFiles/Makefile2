@@ -81,12 +81,12 @@ clean: CMakeFiles/Project2_DSA.dir/clean
 CMakeFiles/Project2_DSA.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project2_DSA.dir/build.make CMakeFiles/Project2_DSA.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project2_DSA.dir/build.make CMakeFiles/Project2_DSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/Project2_DSA/build/CMakeFiles --progress-num=1,2,3 "Built target Project2_DSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/Project2_DSA/build/CMakeFiles --progress-num=1,2,3,4 "Built target Project2_DSA"
 .PHONY : CMakeFiles/Project2_DSA.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Project2_DSA.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/Project2_DSA/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/Project2_DSA/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Project2_DSA.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/Project2_DSA/build/CMakeFiles 0
 .PHONY : CMakeFiles/Project2_DSA.dir/rule
