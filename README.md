@@ -4,7 +4,7 @@ based off academic, technical, and professional attributes.
 
 ---
 ## HOW TO USE:
-git clone <repo-link>
+git clone <https://github.com/amandaherr123/Project2_DSA.git>
 cd Project2_DSA
 
 ---
